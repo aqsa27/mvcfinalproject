@@ -15,7 +15,15 @@ class accountsController extends http\controller
     //to call the show function the url is index.php?page=task&action=show
     public static function show()
     {
-        $record = accounts::findOne($_REQUEST['id']);
+        session_start();
+        if(key_exists('userID',$_SESSION)) {
+            $userID = $_SESSION['userID'];
+        } else {
+
+            echo 'you must be logged in to view tasks';
+        }
+        $userID = $_SESSION['userID'];
+        $record = accounts::findOne($userID);
         self::getTemplate('show_account', $record);
     }
 
@@ -66,7 +74,9 @@ class accountsController extends http\controller
             //you may want to send the person to a
             // login page or create a session and log them in
             // and then send them to the task list page and a link to create tasks
-            header("Location: index.php?page=accounts&action=all");
+            //header("Location: index.php?page=accounts&action=all");
+            header("Location: index.php");
+
 
         } else {
             //You can make a template for errors called error.php
@@ -122,17 +132,17 @@ class accountsController extends http\controller
 
 
         if ($user == FALSE) {
+            print_r("<h1>'User not found'</h1>");
             echo 'user not found';
         } else {
 
             if($user->checkPassword($_POST['password']) == TRUE) {
-
                 echo 'login';
-
                 session_start();
                 $_SESSION["userID"] = $user->id;
 
                 //forward the user to the show all todos page
+                header("Location: index.php?page=tasks&action=all");
                 print_r($_SESSION);
             } else {
                 echo 'password does not match';
@@ -143,6 +153,12 @@ class accountsController extends http\controller
 
 
 
+    }
+
+    public static function logout()
+    {
+        session_destroy();
+        header('Location: index.php');
     }
 
 }

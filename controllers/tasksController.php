@@ -22,8 +22,9 @@ class tasksController extends http\controller
 
     public static function all()
     {
-        $records = todos::findAll();
-        /*session_start();
+       // $userID = $_SESSION["userID"];
+       // $records = todos::findAllById($userID);
+        session_start();
            if(key_exists('userID',$_SESSION)) {
                $userID = $_SESSION['userID'];
            } else {
@@ -32,8 +33,8 @@ class tasksController extends http\controller
            }
         $userID = $_SESSION['userID'];
 
-        $records = todos::findTasksbyID($userID);
-        */
+        $records = todos::findAllById($userID);
+
         self::getTemplate('all_tasks', $records);
 
     }
@@ -44,14 +45,69 @@ class tasksController extends http\controller
 
     public static function create()
     {
-        print_r($_POST);
+        self::getTemplate('addTask');
     }
+
+    public static function addTask()
+    {
+        session_start();
+        if(key_exists('userID',$_SESSION)) {
+            $userID = $_SESSION['userID'];
+        } else {
+
+            echo 'you must be logged in to view tasks';
+        }
+        $userID = $_SESSION['userID'];
+       // self::getTemplate('addTask');
+        echo 'inside addtask';
+        $record = new todo();
+        $record->owneremail=$_POST['owneremail'];
+        $record->ownerid=$userID;
+        $record->createddate=$_POST['cdate'];
+        $record->duedate=$_POST['ddate'];
+        $record->message=$_POST['message'];
+        $record->isdone=$_POST['isdone'];
+        $record->save();
+
+        echo "done";
+        self::getTemplate('index.php?page=tasks&action=all');
+
+    }
+
+    public static function update()
+    {
+        session_start();
+        if(key_exists('userID',$_SESSION)) {
+            $userID = $_SESSION['userID'];
+        } else {
+
+            echo 'you must be logged in to view tasks';
+        }
+        $userID = $_SESSION['userID'];
+        // self::getTemplate('addTask');
+        echo 'inside addtask';
+        $records = todos::findOne($_REQUEST['id']);
+        $record = new todo();
+        $record->id=$records->id;;
+        $record->owneremail=$_POST['owneremail'];
+        $record->ownerid=$userID;
+        $record->createddate=$_POST['cdate'];
+        $record->duedate=$_POST['ddate'];
+        $record->message=$_POST['message'];
+        $record->isdone=$_POST['isdone'];
+        $record->save();
+        echo "done";
+        session_start();
+        header('Location: index.php?page=tasks&action=all&id='.$_SESSION["userID"]);
+      //  self::getTemplate('index.php?page=tasks&action=all');
+
+    }
+
 
     //this is the function to view edit record form
     public static function edit()
     {
         $record = todos::findOne($_REQUEST['id']);
-
         self::getTemplate('edit_task', $record);
 
     }
