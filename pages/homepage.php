@@ -43,7 +43,20 @@
 
 
 </form>
+<form action="index.php?page=accounts&action=registerUser" method="post">
+
+    <div class="container">
+        <button type="submit">Register</button>
+    </div>
+
+
+</form>
 <h1><a href="index.php?page=accounts&action=register">Register</a></h1>
+
+<!--<form action="index.php?page=tasks&action=delete&id=<?php /*$data['id'] */?> " method="post" id="form1">
+    <button type="submit" form="form1" value="delete">Delete</button>
+</form>-->
+
 
 
 <script src="js/scripts.js"></script>
