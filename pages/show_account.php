@@ -32,9 +32,9 @@
 
 <form name="accountDetail" action="index.php?page=accounts&action=save&id=<?php echo $data->id; ?>" onsubmit="return validateForm()" method="post">
 
-    First name: <input type="text" name="fname" value="<?php echo $data->fname; ?>"><br>
+    First name: <input type="text" name="fname" value="<?php echo $data->fname; ?>" required><br>
 
-    Last name: <input type="text" name="lname" value="<?php echo $data->lname; ?>"><br>
+    Last name: <input type="text" name="lname" value="<?php echo $data->lname; ?>" required><br>
     Email: <input type="text" name="email" value="<?php echo $data->email; ?>"><br>
     Phone: <input type="text" name="phone" value="<?php echo $data->phone; ?>"><br>
     Birthday: <input type="text" name="birthday" value="<?php echo $data->birthday; ?>"><br>
@@ -56,44 +56,43 @@
 
 <script>
     function validateForm() {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         var firstname = document.forms["accountDetail"]["fname"].value;
         var lastName = document.forms["accountDetail"]["lname"].value;
         var email = document.forms["accountDetail"]["email"].value;
-        var phone = document.forms["accountDetail"]["phone"].value;
-        var gender = document.forms["accountDetail"]["gender"].value;
+        var password = document.forms["accountDetail"]["password"].value;
+
         var alertmessage = "";
-        if (firstname == "")
-        {
-            alertmessage = alertmessage + "Please fill the first Name  ,";
-           // alert(alertmessage);
-           // return false;
-        }
-        if (lastName == "")
-        {
-            alertmessage = alertmessage + "Please fill the Last Name  ,";
-        }
+        /* if (firstname =="")
+         {
+             alertmessage = alertmessage + "At least 1 character needed for First Name ,";
+             // alert(alertmessage);
+             // return false;
+         }
+         if (lastName == "")
+         {
+             alertmessage = alertmessage + "At least 1 character needed for Last Name ,";
+         }
+         if (password < "6")
+         {
+             alertmessage = alertmessage + "Password must be at least 6 character long ,";
+         } */
         if (email == "")
         {
-            alertmessage = alertmessage + "Please fill the email address  ,";
+            alertmessage = alertmessage + "Please enter the Email address";
         }
-        if (phone == "")
+        if (!email.match(mailformat) && email != "")
         {
-            alertmessage = alertmessage + "Please fill the phone number  ,";
-
-        }
-        if (gender == "")
-        {
-            alertmessage = alertmessage + "Please fill the gender  ,";
-
+            alertmessage = alertmessage + "Email address is not Valid.";
         }
 
         if (alertmessage != "")
         {
-             alert(alertmessage);
-             return false;
+            alert(alertmessage);
+            return false;
         }
 
-}
+    }
 </script>
 </body>
 </html>

@@ -21,6 +21,7 @@ abstract class model
             $sql = $this->insert();
             $INSERT = TRUE;
         }
+        echo $sql;
         $db = dbConn::getConnection();
         $statement = $db->prepare($sql);
         $array = get_object_vars($this);
