@@ -83,6 +83,22 @@ class routes
         $route->method = 'show';
         $routes[] = $route;
 
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'create';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'create';
+        $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'addtask';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'update';
+        $routes[] = $route;
+
         //This goes in the login form action method
         //GET METHOD index.php?page=accounts&action=login
 
@@ -95,6 +111,14 @@ class routes
         $route->method = 'login';
         $routes[] = $route;
 
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'logout';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'logout';
+        $routes[] = $route;
+
         //YOU WILL NEED TO ADD MORE ROUTES
 
         $route = new route();
@@ -104,6 +128,15 @@ class routes
         $route->controller = 'tasksController';
         $route->method = 'delete';
         $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'edit';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'edit';
+        $routes[] = $route;
+
 
 
         $route = new route();
@@ -138,6 +171,16 @@ class routes
         $route->method = 'register';
         $routes[] = $route;
         //this handles the reg post to create the user
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'registerUser';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'register';
+        $routes[] = $route;
+
+
         $route = new route();
         $route->http_method = 'POST';
         $route->action = 'register';
