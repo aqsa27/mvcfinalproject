@@ -48,11 +48,12 @@
         if (lastName == "")
         {
             alertmessage = alertmessage + "At least 1 character needed for Last Name ,";
-        }
-        if (password < "6")
+        
+        }*/
+        if (password.length < 6)
         {
             alertmessage = alertmessage + "Password must be at least 6 character long ,";
-        } */
+        }
         if (email == "")
         {
             alertmessage = alertmessage + "Please enter the Email address";
