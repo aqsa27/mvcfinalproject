@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-<body style="background-color:powderblue;">
+<body background="25.jpg">
     <meta charset="utf-8">
 
     <title>The HTML5 Herald</title>

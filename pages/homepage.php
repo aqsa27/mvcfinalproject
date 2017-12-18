@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <html>
-<body style="background-color:powderblue;">
+<body background="25.jpg">
 <br> <center><img src="NJIT.png"  width="350" height="250"></center>
 
     <meta charset="utf-8">
@@ -39,10 +39,10 @@
 
 
     <center><div class="container">
-        <label><b><font size='34'  color='red'>Username</font></b></label>
+        <label><b><font size='34'  color='black'>Username</font></b></label>
         <input type="text" placeholder="Enter Username" name="email" required>
 
-        <label><b><font size='34'  color='red'>Password</font></b></label>
+        <label><b><font size='34'  color='black'>Password</font></b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
         <font size='34'><button type="submit">Login</button></font size>
     </div>
