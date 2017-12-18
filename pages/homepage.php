@@ -5,6 +5,12 @@
 <html>
 <body background="25.jpg">
 <br> <center><img src="NJIT.png"  width="350" height="250"></center>
+<footer>
+  <b><p><Font size 30><Posted by: Aqsa Sheikh</font></p></b>
+  <p>Contact information: <a href="mailto:ars92@njit.edu">ars92@njit.edu</a>.</p>
+</footer>
+
+<p><strong>Note:</strong> New Jersey Institute of Technology.</p>
 
     <meta charset="utf-8">
 
@@ -34,10 +40,6 @@
 
 <form action="index.php?page=accounts&action=login" method="POST">
 
-
-<br>
-
-
     <center><div class="container">
         <label><b><font size='34'  color='black'>Username</font></b></label>
         <input type="text" placeholder="Enter Username" name="email" required>
@@ -52,8 +54,6 @@
 <form action="index.php?page=accounts&action=registerUser" method="post">
 
     <div class="container">
-    <br>
-    <br>
     <br>
       <br> <center><button type="submit">Register</center></button></br>
     </div>
