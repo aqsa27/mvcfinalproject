@@ -4,8 +4,7 @@
 <head>
 <html>
 <body style="background-color:powderblue;">
-<body background="colorful-abstract-background-with-squares_1035-3033.png">
-
+<br> <center><img src="NJIT.png"  width="350" height="250"></center>
 
     <meta charset="utf-8">
 
@@ -29,8 +28,7 @@
     
     <br>
     <br>
-    <br>
-    <br>
+
 
 
 
@@ -38,10 +36,8 @@
 
 
 <br>
-<br>
-<br>
-<br>
-<br>
+
+
     <center><div class="container">
         <label><b><font size='34'  color='red'>Username</font></b></label>
         <input type="text" placeholder="Enter Username" name="email" required>

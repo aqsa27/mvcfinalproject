@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+<body style="background-color:powderblue;">
     <meta charset="utf-8">
 
     <title>The HTML5 Herald</title>
@@ -22,7 +23,7 @@
 
 $arr = (array)$data;
 if (empty($arr)) {
-    echo "You have no task on your ID, Please create by clicking ADD TASK";
+    echo "No task available on your ID, Please click on ADD TASK to create a new Task";
 }
 else
 {
